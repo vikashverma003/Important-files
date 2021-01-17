@@ -1,0 +1,3 @@
+for redirection
+ window.location.href = 'multiple_download_user1'+'/'+val+'/'+'dwn';                 			  
+for reloding --   location.reload()

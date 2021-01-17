@@ -1,0 +1,16 @@
+//
+Add this to your .env
+BACKEND_URL=http://backend.myshop.dev/public/
+Call
+<img src="{{ env('BACKEND_URL') . "{img/$photo}"}}"/>
+
+
+// 
+User::where('id',$request->id)->update([
+                'notification'       => 1,
+                'updated_at'         => new \DateTime
+            ]);
+
+//
+implode function returns a string
+

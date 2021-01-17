@@ -1,0 +1,6 @@
+
+
+
+https://prnt.sc/svqtb8
+
+            <td><a href="{!! url('approve_workout_action',$workouts->_id)!!}">action</a></td>

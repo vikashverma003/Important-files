@@ -1,0 +1,123 @@
+            <td><a href="{!! url('approve_workout_action',$workouts->_id)!!}">action</a></td>
+
+
+// <td><img src="{{asset('admin/images/faces')}}/{{$Words->threat_faces}}" width="100" height="100" alt="image"/></td>
+
+			
+			
+			/**
+			
+			<tbody>
+        	<?php $i = 1; ?>
+        	@foreach($workout as $workouts)
+          <tr>
+            <td>{!! $i++ !!}</td>
+            <td>{!! $workouts->title !!}</td>
+            <td>{!! $workouts->description !!}</td>
+            <td>{!! $workouts->type !!}</td>
+            <td>{!! $workouts->running !!}</td>
+            <td>{!! $workouts->page_for !!}</td>
+            <td>{!! $workouts->approval !!}</td>
+            <td><a href="{!! url('approve_workout_action',$workouts->_id)!!}">action</a></td>
+           
+          </tr>
+          @endforeach
+        </tbody>
+			
+			
+***/
+
+window.location.href="{{route('client_dashboard')}}";
+
+			
+******/
+ User::where('id',$request->user_id)->update([
+                'delete_status' => '1',
+                'updated_at' => new \DateTime
+            ]);		
+**********/
+
+/**
+
+<script type="text/javascript">
+  
+
+   function delete_confirmation(id)
+  {
+    swal({
+        title: "Are you sure want to delete this user?",
+        text: "Please ensure and then confirm",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#ab8be4",
+        confirmButtonText: "Yes",
+        closeOnConfirm: false
+    })
+   
+    .then((willDelete) => {
+      if (willDelete) {
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+          type: 'GET',
+          url: "{{route('delete_user')}}?user_id="+id,
+          success:function(data){
+            if(data.success == true)
+            {
+              swal("Done!", data.message, "success");
+            }
+            else
+            {
+              swal("Error!", data.message, "error");
+            }
+            setTimeout(function(){ location.reload()}, 3000);
+          }
+        });
+      } 
+    });
+  }
+
+
+  function block_confirmation(id, status)
+  {
+    swal({
+        title: "Are you sure you want to "+status+"?",
+        text: "Please ensure and then confirm",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#ab8be4",
+        confirmButtonText: "Yes, "+status+" it!",
+        closeOnConfirm: false
+    })
+   
+    .then((willDelete) => {
+      if (willDelete) {
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+          type: 'GET',
+           url: "{{route('block_user')}}?user_id="+id+"&status="+status,
+          success:function(data){
+            if(data.success == true)
+            {
+              swal("Done!", data.message, "success");
+            }
+            else
+            {
+              swal("Error!", data.message, "error");
+            }
+            setTimeout(function(){ location.reload()}, 3000);
+          }
+        });
+      } 
+    });
+  }
+ 
+</script>
+
+
+
+
+
+
+
+**/
+			
